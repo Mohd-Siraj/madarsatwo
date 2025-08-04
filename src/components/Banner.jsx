@@ -5,12 +5,19 @@ const Banner = ({ data }) => {
         {data.title}
       </h2>
 
-      <div className="flex flex-col gap-3 items-center justify-between mb-8">
-        <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-6 md:mb-0">
+      <div className="flex flex-col gap-3 items-center justify-between mb-8 ">
+        <div
+          className="relative flex flex-wrap justify-center md:justify-center gap-4 mb-6 md:mb-0 bg-center bg-contain bg-no-repeat z-0 w-full"
+          style={{ backgroundImage: "url('/images/bgframe.png')" }}
+        >
+          {/* Foreground Images */}
           {data.banner.images.map((image, index) => (
             <div
               key={index}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-lg"
+              className="w-32 h-40 md:w-40 md:h-48 shadow-lg overflow-hidden z-10"
+              style={{
+                borderRadius: "60%/30%",
+              }}
             >
               <img
                 src={image || "/placeholder.svg"}
